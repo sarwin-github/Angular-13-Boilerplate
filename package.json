@@ -1,5 +1,5 @@
 {
-  "name": "my-pet-go",
+  "name": "ng-boiler",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,10 @@
     "build": "npm run build:ssr",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run my-pet-go:serve-ssr",
-    "serve:ssr": "node dist/my-pet-go/server/main.js",
-    "build:ssr": "ng build && ng run my-pet-go:server",
-    "prerender": "ng run my-pet-go:prerender"
+    "dev:ssr": "ng run ng-boiler:serve-ssr",
+    "serve:ssr": "node dist/ng-boiler/server/main.js",
+    "build:ssr": "ng build && ng run ng-boiler:server",
+    "prerender": "ng run ng-boiler:prerender"
   },
   "private": true,
   "dependencies": {

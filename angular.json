@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-pet-go": {
+    "ng-boiler": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-pet-go",
+            "outputPath": "dist/ng-boiler",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -83,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-pet-go:build:production"
+              "browserTarget": "ng-boiler:build:production"
             },
             "development": {
-              "browserTarget": "my-pet-go:build:development"
+              "browserTarget": "ng-boiler:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-pet-go:build"
+            "browserTarget": "ng-boiler:build"
           }
         },
         "test": {
@@ -119,7 +119,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/my-pet-go/server",
+            "outputPath": "dist/ng-boiler/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -146,12 +146,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "my-pet-go:build:development",
-              "serverTarget": "my-pet-go:server:development"
+              "browserTarget": "ng-boiler:build:development",
+              "serverTarget": "ng-boiler:server:development"
             },
             "production": {
-              "browserTarget": "my-pet-go:build:production",
-              "serverTarget": "my-pet-go:server:production"
+              "browserTarget": "ng-boiler:build:production",
+              "serverTarget": "ng-boiler:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -165,12 +165,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-pet-go:build:production",
-              "serverTarget": "my-pet-go:server:production"
+              "browserTarget": "ng-boiler:build:production",
+              "serverTarget": "ng-boiler:server:production"
             },
             "development": {
-              "browserTarget": "my-pet-go:build:development",
-              "serverTarget": "my-pet-go:server:development"
+              "browserTarget": "ng-boiler:build:development",
+              "serverTarget": "ng-boiler:server:development"
             }
           },
           "defaultConfiguration": "production"
@@ -178,5 +178,5 @@
       }
     }
   },
-  "defaultProject": "my-pet-go"
+  "defaultProject": "ng-boiler"
 }

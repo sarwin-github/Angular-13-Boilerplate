@@ -91,7 +91,7 @@ export class ForgotPasswordComponent implements OnInit {
 
         this.error = localStorage.getItem('loginError');
         //this.spinner.hide();
-        this.router.navigate(['/customer/signin']);
+        this.router.navigate(['/account/signin']);
       } 
 
       // if no error, execute login validation
@@ -116,7 +116,7 @@ export class ForgotPasswordComponent implements OnInit {
         // spinner ends after 2 seconds 
         setTimeout(() => {
           //this.spinner.hide();
-          this.router.navigate(['/customer/profile']);
+          this.router.navigate(['/account/profile']);
         }, 2000);
       }
     },
