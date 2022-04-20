@@ -1,0 +1,65 @@
+@import "src/assets/styles/colors";
+
+@mixin center-v () {
+  position: absolute;
+  //top: 0;
+  bottom: -55%;
+  //margin: auto;
+  z-index: 9999;
+  transition: all 1s ease-in-out-back !important;
+}
+
+.item {
+  &--primary {
+    @include center-v;
+    //right: 20px;
+    //background: green;
+  }
+  
+  &--secondary {
+    @include center-v;
+    transform: scale(1.1) !important;
+    //left: 20px;
+  }
+}
+
+
+.btn-primary{
+	font-family: 'Circular-Regular' !important;
+	// /font-weight: 100 !important;
+	border: none;
+	padding: 12px 30px !important;
+	background: $color-light-green !important;
+	border-radius: 2px !important;
+}
+
+.bg-dark{
+	background: linear-gradient(96.52deg, #2A9DF4 -3.5%, #187BCD 44.54%, #03254C 128.45%) !important;
+}
+
+.title-product{
+	font-family: 'Circular-Regular' !important;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 28px;
+	color: #F7F7F7;
+}
+
+.title-main{
+	font-family: 'Uni-Sans-Bold';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 63px;
+	line-height: 61px;
+}
+
+.banner-image{
+	width: 100%;
+	margin-left: -70px;
+
+	@media(max-width: 999px){
+		width: 100%;
+		margin-left: 0;
+	}
+}

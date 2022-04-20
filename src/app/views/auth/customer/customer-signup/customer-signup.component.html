@@ -1,0 +1,97 @@
+<div class="container-fluid pb-5 pt-3 bg-auth mb-3"
+[@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
+	<div class="container">
+		<div class="row px-lg-1">
+			<div class="col-12 col-lg-6 offset-lg-3 bg-light p-lg-5 text-center align-self-center mt-5">
+				<!-- Error Message -->
+				<form class="px-3 py-5 p-lg-5 py-lg-3" (submit)="signupCustomer($event)" [formGroup]="customerSignupForm">
+					<div class="form-group">
+						<h5 class="title-about">Join us</h5>
+						<p class="title-description text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,!</p>
+					</div>
+
+					<div class="text-center d-lg-flex w-100 mt-5">
+						<button class="btn btn-block btn-social w-100 me-3 hvr-hang mb-3 mb-lg-0">
+							<img src="/assets/images/placeholder/google.png" class="me-3 " style="width: 25px;">Sign up with Google
+						</button>
+						<button class="btn btn-block btn-social w-100 hvr-hang">
+							<img src="/assets/images/placeholder/facebook-2.png" class="me-3" style="width: 28px;">Sign up with Facebook
+						</button>
+					</div>
+
+					<div class="text-center mt-4 mb-2">
+						<p class="w-100">
+							<img src="/assets/images/placeholder/line.png" class="img-fluid line me-2">
+							<span class="continue-with">Or continue with</span>
+							<img src="/assets/images/placeholder/line.png" class="img-fluid line ms-2">
+						</p>
+					</div>
+
+					<div class="alert alert-danger alert-dismissible fade show error-message" [@animate]="{value:'*', params:{ y:'50px', delay:'600ms' }}" *ngIf="error" role="alert">
+					  	<button type="button" class="btn-close hvr-buzz-out" data-bs-dismiss="alert" aria-label="Close" (click)="onAlertClose()"></button>
+					  	<span [innerHtml]="error"></span>
+					</div>
+
+          <div class="form-inline row">
+            <div class="form-group col-12 col-lg-6 mt-3">
+              <input type="text" class="form-control" formControlName="fname" name="fname" placeholder="First Name">
+            </div>
+            <div class="form-group col-12 col-lg-6 mt-3">
+              <input type="text" class="form-control" formControlName="lname" name="lname" placeholder="Last Name">
+            </div>
+          </div>
+
+					<div class="form-group mt-4">
+						<input type="email" class="form-control" formControlName="email" name="email" placeholder="Email Address">
+					</div>
+
+					<div class="form-group mt-4">
+						<input [type]="inputType" class="form-control" id="password" placeholder="Password" formControlName="password">
+
+						<div>
+							<img src="/assets/images/placeholder/hide-password.png" width="23px"
+							class="img-fluid me-2 img-plc" *ngIf="inputType === 'password'"
+							(click)="inputType = 'text'"
+							style="margin-top: -2px;">
+
+							<img src="/assets/images/placeholder/show-password.png" width="23px"
+							class="img-fluid me-2 img-plc" *ngIf="inputType === 'text'"
+							(click)="inputType = 'password'"
+							style="margin-top: -2px;">
+						</div>
+					</div>
+
+          <div class="form-group mt-4">
+						<input type="text" class="form-control" formControlName="phone" name="phone" placeholder="Phone ex. 9123456789">
+					</div>
+
+					<div class="form-check my-4 text-start px-4 ">
+						<input type="checkbox" class="form-check-input"
+						formControlName="agree_to_term">
+						<label class="form-check-label mt-1">By creating your account, you agree to Chewy's Privacy Policy and Terms of Use.</label>
+					</div>
+
+					<div class="w-100">
+						<button type="submit" class="btn btn-primary btn-block w-100 mt-4 hvr-grow">Join Us</button>
+					</div>
+
+					<div class="text-center mt-4 join-us">
+						Already have an account ?
+						<a [routerLink]="'/account/login'" class="hvr-grow"> Log in?</a><br>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-12 col-md-6 offset-md-3 text-center align-self-center mt-3">
+				<div class="language-selector">
+					<select name="languages">
+					  	<option>English (UK)</option>
+					  	<option>German</option>
+					  	<option>Japanese</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

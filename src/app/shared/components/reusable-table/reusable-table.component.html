@@ -1,0 +1,189 @@
+
+<section class="mt-3" style="overflow-x: auto !important; width: 100%;">
+	<!-- EMPTY TABLE -->
+	<div class="img-info justify-content-start ps-0 pt-5 d-flex bg-gray container" 
+	[@animate]="{value:'*', params:{ x:'-50px', delay:'300ms' }}"
+	*ngIf="listDataSource?.length === 0">
+		<div class="flex-wrap" style="margin-left: 20px;" >
+			<h4>List of {{componentTitle}} is currently empty. </h4>
+		</div>
+	</div>
+
+	<ng-container *ngIf="listDataSource?.length === 0">
+		<div class="d-none d-sm-block"><br><br><br></div>
+		<!-- <hr> -->
+	</ng-container>
+
+	<!-- TABLE DATA DESKTOP  [hidden]="!withHeader"-->
+	<div id="table-container" class="d-none d-md-inline w-100" 
+	*ngIf="listDataSource?.length > 0">
+		<table class="mt-0 pt-0 w-100" mat-table matSort 
+		[dataSource]="dataSource" *ngIf="!loading">
+			<ng-container *ngFor="let header of displayedColumns; index as cindex" 
+			[matColumnDef]="header?.col_name">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header 
+
+				[@animate]="{value:'*', params:{ x:'-10px', delay:'100ms' }}"
+				style="border-bottom: solid #cecece 1px; position: relative;"
+				[ngStyle]="{
+					'width': header?.col_name == 'profile_image' 
+					|| header?.col_name == 'icon' 
+					|| header?.col_name == 'delete' ? '50px'
+					: header?.col_name == 'action' ? '144px' 
+					: ''
+				}"
+				>
+					<span *ngIf="header?.col_name !== 'profile_image' 
+					&& header?.col_name !== 'delete'" 
+					class="table_img float-end" 
+					style="position: absolute; right: 0;" 
+					[ngStyle]="{
+						'position': header?.type ? 'absolute' : '',  
+						'right': header?.type === 'currency' ? '0' : ''
+					}"
+					[innerHtml]="header?.title"></span>
+				</th>
+
+				<td mat-cell *matCellDef="let data"
+				[ngClass]="[header?.type === 'currency' ? 'text-end' : '', header?.type === 'number' ? 'ps-5' : '']"
+				[@animate]="{value:'*', params:{ x:'-10px', delay:'100ms' }}"> 
+					<span class="flex-wrap ms-2" 
+					*ngIf="header?.col_name === 'first_name' 
+					&& header?.col_name !== 'icon'
+					&& header?.col_name !== 'action'
+					&& header?.col_name !== 'profile_image'">
+						{{ data.first_name }} {{data.last_name}} 
+					</span>
+
+					<ng-container>
+						<span *ngIf="header?.col_name !== 'profile_image'
+						 && header?.col_name !== 'icon'
+						 && header?.col_name !== 'action'
+						 && header?.type !== 'date'
+						 && header?.col_name !== 'status'"
+
+						 [ngClass]="header?.type === 'hash_code' ? 'text-primary' : ''">
+						 	<!-- TRUE | FALSE VALUE CONVERT TO YES OR NO -->
+							<span *ngIf="header?.type === 'currency'">$</span>
+							{{ 
+								(
+									data[header?.col_name] === true ? 'Yes' 
+									: data[header?.col_name] === false ? 'No'
+									: data[header?.col_name]
+								) || '-' 
+							}} 
+						</span>
+
+						<span *ngIf="header?.type === 'date'">
+							{{ data[header?.col_name] | date: 'dd-MM-yyyy' || '-'}}
+						</span>
+
+						<span *ngIf="header?.col_name === 'status'">
+							<button class="btn btn-status" 
+							[ngClass]="data[header?.col_name]?.split(' ').join('-').toLowerCase()">
+							{{ data[header?.col_name] }} </button>
+						</span>
+					</ng-container>
+				</td>
+
+			</ng-container>
+
+		  	<tr mat-header-row *matHeaderRowDef="selectedColumns;" class="text-center"></tr>
+		  	<tr mat-row *matRowDef="let row; let i = index; columns: selectedColumns;"
+		  	(click)="selectRows(row)"
+		  	(dblclick)="viewDetailDialog(row)"
+		  	[ngClass]="selectedRows.indexOf(row) > -1 ? 'bg-selected': ''"></tr>
+		</table>
+	</div>
+
+	<!-- TABLE DATA MOBILE -->
+	<div id="table-container-mobile" class="d-block d-md-none">
+		<table class="table mt-0 pt-0" mat-table matSort 
+		[dataSource]="dataSource" *ngIf="!loading">
+			<ng-container 
+			*ngFor="let header of displayedColumns; index as cindex" 
+			[matColumnDef]="header?.col_name">
+				<tr class="w-100" *matCellDef="let data"> 
+					<td class="w-100">
+						<span class="flex-wrap ms-2" 
+						*ngIf="header?.col_name === 'first_name' 
+						&& header?.col_name !== 'icon'
+						&& header?.col_name !== 'action'
+						&& header?.col_name !== 'profile_image'">
+							{{ data.first_name }} {{data.last_name}} 
+						</span>
+
+						<ng-container>
+							<span *ngIf="header?.col_name !== 'profile_image'
+							 && header?.col_name !== 'icon'
+							 && header?.col_name !== 'action'
+							 && header?.type !== 'date'
+							 && header?.col_name !== 'status'"
+							 [ngClass]="header?.type === 'hash_code' ? 'order-number' : ''">
+							 	<!-- TRUE | FALSE VALUE CONVERT TO YES OR NO -->
+								
+								{{header?.title}}: 
+								<ng-container *ngIf="header?.type === 'currency'">$</ng-container>
+								{{ 
+									(
+										data[header?.col_name] === true ? 'Yes' 
+										: data[header?.col_name] === false ? 'No'
+										: data[header?.col_name]
+									) || '-' 
+								}} 
+							</span>
+
+							<span *ngIf="header?.type === 'date'">
+								{{header?.title}}: {{ data[header?.col_name] | date: 'dd-MM-yyyy' || '-'}}
+							</span>
+
+							<span *ngIf="header?.col_name === 'status'">
+								<button class="btn btn-status" 
+								[ngClass]="data[header?.col_name]?.split(' ').join('-').toLowerCase()">
+								{{ data[header?.col_name] }} </button>
+							</span>
+						</ng-container>
+					</td>
+				</tr>
+			</ng-container>
+
+		  	<!-- <tr mat-header-row *matHeaderRowDef="selectedColumns"></tr> -->
+		  	<tr mat-row *matRowDef="let row; let i = index; columns: selectedColumnsMobile;"
+		  	(click)="selectRows(row)"
+		  	(dblclick)="viewDetailDialog(row)"
+		  	[ngClass]="selectedRows.indexOf(row) > -1 ? 'bg-selected': ''"></tr>
+		</table>
+	</div>
+
+	<!-- NAVIGATOR DETAILS -->
+	<div class="flex-wrap px-2" *ngIf="listDataSource?.length > 0">
+		<p class="float-start" *ngIf="multipleSelect">Showing 1 to {{maxRows}} of {{listDataSource?.length}} entries
+			<span class="ms-5">
+				<strong style="color: #8C7FF9">{{selectedRows?.length}}</strong>
+				Rows selected
+			</span>
+		</p> 
+
+		<!-- PAGINATOR -->
+		<p class="float-end paginator" *ngIf="paginate.length > 1">
+			<span class="text-black" 
+			(click)="page !== 1 ? changePage(page-1): ''"> 
+				<img src="/assets/images/icons/caret-left.png" class="img-fluid" width="7px">
+			</span>
+
+			<span 
+			*ngFor="let i of paginate.slice(
+				this.pageRange(this.page, this.paginate.length)['start'], 
+				this.pageRange(this.page, this.paginate.length)['end']
+			)"
+			(click)="changePage(i)">
+				<span [ngClass]="i === page ? 'text-purple': 'text-black'">{{i}}</span>
+			</span>
+			
+			<span class="text-black" 
+			(click)="page !== paginate.length ? changePage(page+1): ''"> 
+				<img src="/assets/images/icons/caret-right.png" class="img-fluid" width="7px">
+			</span>
+		</p>
+	</div>
+</section>

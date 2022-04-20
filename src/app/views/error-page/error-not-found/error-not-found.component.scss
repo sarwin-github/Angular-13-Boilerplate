@@ -1,0 +1,146 @@
+@import "src/assets/styles/colors";
+
+.dog-not-found{
+
+	&-left{
+		position: absolute;
+		width: 450px;
+		left: 0;
+		bottom: 0;
+		z-index: 9 !important;
+
+		@media (max-width: 899px){
+			position: inherit;
+		}
+	}
+
+	&-right{
+		position: absolute;
+		width: 380px;
+		right: -0px;
+		bottom: -120px;
+		z-index: 9 !important;
+
+		@media (max-width: 899px){
+			position: inherit;
+			display: none
+		}
+	}
+}
+
+.btn-primary{
+	border: none;
+	padding: 12px 30px !important;
+	background: $color-light-green !important;
+	border-radius: 2px !important;
+}
+
+.back-home{
+	@extend .btn-primary;
+	background: white !important;
+	color: #939393 !important;
+	border: 2px solid #E1E1E1 !important;
+}
+
+.bg-dark{
+	background: $color-black-bg !important;
+}
+
+.title-sub{
+	font-family: 'Circular-Regular';
+	font-weight: 100;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 24px;
+	color: #939393;
+}
+
+.title-main{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 45px;
+	line-height: 49px;
+	margin-bottom: 15px;
+}
+
+.title-about{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 28px;
+	margin-bottom: 7px;
+	cursor: pointer;
+	color: #404040;
+}
+
+.title-description{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 100;
+	font-size: 20px;
+	line-height: 28px;
+	color: #8D8D8D;
+	margin-bottom: 10px;
+	font-feature-settings: 'ss04' on, 'ss03' on, 'ss02' on;
+}
+
+.learn-more{
+	font-family: 'Circular-Regular';
+	color: $color-light-green;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.banner-image{
+	width: 85%;
+	//margin-left: -70px;
+
+	@media(max-width: 999px){
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+.icon-holder-main{
+	border-radius: 50%;
+	max-width: 70px;
+	max-height: 70px;
+	padding: 23px 20px 20px 20px;
+
+	.icon-image{
+		width: 100%;
+		cursor: pointer;
+	}
+}
+
+.icon-holder{
+	@extend .icon-holder-main;
+}
+
+.icon-holder-notification{
+	@extend .icon-holder-main;
+	padding: 17px 20px 20px 20px;
+}
+
+.icon-holder-lifestyle{
+	@extend .icon-holder-main;
+	padding: 20px 20px 20px 20px;
+}
+
+.bg-light-green{
+	background: $color-light-green
+}
+
+.bg-dark-blue{
+	background: $color-dark-blue;
+}
+
+.bg-light-green-transparent{
+	background: #EFFFFD;
+}

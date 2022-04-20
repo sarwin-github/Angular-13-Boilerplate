@@ -1,0 +1,281 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~assets/styles/colors';
+@import '~assets/styles/fonts';
+@import '~@angular/material/theming';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@include mat-core();
+
+
+html, body { height: 100%;  }
+body { 
+	font-family: "Inter" !important;
+	font-size: 14px;
+	margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+.hvr-underline-from-left{
+	&::before{
+		background: $color-light-green;
+	}
+}
+
+/* input[type="password"]{
+	-webkit-text-security: square;
+}
+ */
+/* 
+.bg-primary{
+	background: $color-purple !important;
+}
+
+.bg-warning{
+	background: $color-orange !important;
+}
+
+.btn{
+	font-size: 12px !important;
+	font-family: "Noto Sans" !important;
+	font-style: normal !important;
+	border-radius: 50px !important;
+	padding: 10px 30px !important;
+	line-height: 17.71px !important;
+	letter-spacing: 1px !important;
+	font-weight: 500 !important;
+}
+
+
+.btn-primary{
+	background: $color-purple !important;
+	border-color: $color-purple !important;
+	color: #ffffff !important;
+
+	&:hover{
+		background: $color-purple-dark !important;
+		transition: background-color 0.5s ease !important;
+	}
+}
+
+.btn-success{
+	background: $color-green !important;
+	border-color: $color-green !important;
+	color: #ffffff !important;
+
+	&:hover{
+		background: $color-green-dark !important;
+		transition: background-color 0.5s ease !important;
+	}
+}
+
+.btn-danger{
+	background: $color-red !important;
+	border-color: $color-red !important;
+	color: #ffffff !important;
+
+	&:hover{
+		background: $color-red-dark !important;
+		transition: background-color 0.5s ease !important;
+	}
+}
+
+.btn-warning{
+	background: $color-orange !important;
+	border-color: $color-orange !important;
+	color: #ffffff !important;
+
+	&:hover{
+		background: $color-orange-dark !important;
+		transition: background-color 0.5s ease !important;
+	}
+}
+
+.btn-secondary{
+	background: $color-gray !important;
+	border-color: $color-gray !important;
+	color: #ffffff !important;
+
+	&:hover{
+		background: $color-gray-dark !important;
+		transition: background-color 0.5s ease !important;
+	}
+}
+
+.btn-outline-secondary{
+	border-color: #868686 !important;
+}
+ */
+
+
+
+/* .card{
+	border-color: white !important;
+	border-radius: 8px !important;
+	box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+	-webkit-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+
+	&-title{
+		font-weight: 600 !important;
+		color: #4D4D4D !important;
+		border-bottom: solid 0.5px #C8C9CA;
+		margin-bottom: 20px;
+		line-height: 60px !important;
+
+		&-right-badge{
+			&-primary{
+				@extend .card-badge;
+				background: $color-purple;
+			}
+
+			&-success{
+				@extend .card-badge;
+				background: $color-green;
+			}
+
+			&-danger{
+				@extend .card-badge;
+				background: $color-red;
+			}
+
+			&-warning{
+				@extend .card-badge;
+				background: $color-orange;
+			}
+
+			&-secondary{
+				@extend .card-badge;
+				background: $color-gray;
+
+			}
+		}
+	}
+}
+ */
+
+
+/* hide scroll for sidebar but remain scrollable */ 
+
+/* #client-alerts,
+#employee-alerts,{
+  ::-webkit-scrollbar {
+    width: 3px !important;
+    height: 0px !important;
+    cursor: move; 
+    border-radius: 20px;
+  }
+
+
+  ::-webkit-scrollbar-thumb {
+      background: #BCC0C4;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+
+}  */
+
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px;
+  cursor: move; /* fallback if grab cursor is unsupported */
+}
+
+@media (max-width: 800px){
+  ::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    cursor: move; 
+  }
+} 
+
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #28253d;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+#toast-container{
+  z-index: 999999999 !important;
+}
+
+.title-main{
+	@media (max-width: 899px){
+		font-size: 33px !important;
+		line-height: 36px !important;
+	}
+}
+
+.title-purchase{
+	@media (max-width: 899px){
+		font-size: 33px !important;
+		line-height: 36px !important;
+	}	
+}
+
+/* MAT DIALOG STYLING */
+/* .mat-dialog-container, 
+.dialog-responsive {
+    border-color: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05) !important;
+    -webkit-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05) !important;
+    -moz-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05) !important;
+    overflow: auto !important;
+
+    //position: absolute !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .mat-dialog-container, 
+    .dialog-responsive {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto;
+        overflow: auto !important;
+    }
+}
+ */
+/* Mat tooltip 
+.mat-tooltip {
+  padding: 10px 15px 10px 10px !important;
+  color: whitesmoke !important;
+  margin-bottom: 20px !important;
+  margin-left: 15px !important;
+  white-space: pre-line;
+  width: 150px;
+  height: auto;
+  font-size: 10px;
+  font-weight: 300 !important;
+  background: $color-purple;
+  overflow: visible !important; 
+  bottom: -20px !important;
+  border: none;
+  border-radius: 8px !important;
+  position: relative !important;
+  right: -60px;
+  top: 10px;
+  z-index: 9999999 !important;
+  box-shadow: 0px 4px 5px rgba(102, 102, 102, 0.25);
+
+  &:after {
+    content: " ";
+    position:absolute;
+    bottom:-7px; 
+    left: 5%;
+    z-index: 99999999 !important;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 7px 0 7px;
+    border-color: $color-purple transparent transparent transparent;
+  }
+}
+*/
+

@@ -1,0 +1,198 @@
+@import "src/assets/styles/colors";
+a{
+	text-decoration: none;
+	color: #E1E1E1;
+}
+
+.btn-primary{
+	border: none;
+	padding: 12px 30px !important;
+	background: $color-light-green !important;
+	border-radius: 2px !important;
+}
+
+.bg-dark{
+	background: $color-black-bg !important;
+	z-index: 9999 !important;
+}
+
+.bg-dark-2{
+	background: #1F1F1F;
+}
+
+.title-sub{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #ffffff;
+
+	@media(min-width: 1500px){
+		padding-right: 150px !important;
+	}
+}
+
+.title-main{
+	font-family: 'Uni-Sans-Bold';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 45px;
+	line-height: 49px;
+}
+
+.title-about{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 0;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.title-list{
+	font-family: 'Circular-Regular';
+	color: #E1E1E1;
+	cursor: pointer;
+	font-weight: 200;
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
+
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
+.title-description{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 20px;
+	color: #939393;
+	margin-bottom: 10px;
+}
+
+.title-copyright{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 16px;
+	color: #AFAFAF;
+}
+
+.title-copyright-2{
+	@extend .title-copyright;
+	
+	&:hover{
+		text-decoration: underline;
+		cursor: pointer
+	}
+}
+
+.learn-more{
+	color: $color-light-green;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.banner-image{
+	width: 110% ;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	@media(max-width: 999px){
+		width: 100%;
+		margin-left: 0;
+	}
+
+	@media(max-width: 1560px) and (min-width:1300px){
+		width: 125% !important;
+	}
+}
+
+.icon-holder-main{
+	border-radius: 50%;
+	max-width: 70px;
+	max-height: 70px;
+	padding: 23px 20px 20px 20px;
+	background: #1E1E1E;
+
+	.icon-image{
+		width: 100%;
+		cursor: pointer;
+	}
+}
+
+.icon-holder{
+	@extend .icon-holder-main;
+}
+
+.icon-holder-store{
+	@extend .icon-holder-main;
+	padding: 19px 20px 20px 20px;
+}
+
+.icon-holder-lifestyle{
+	@extend .icon-holder-main;
+	padding: 20px 20px 20px 20px;
+}
+
+.bg-light-green{
+	background: $color-light-green
+}
+
+.bg-dark-blue{
+	background: $color-dark-blue;
+}
+
+
+.store-image{
+	width: 200px;
+	cursor: pointer;
+}
+
+.form-control{
+	border-radius: 90px;
+	padding: 25px 30px !important;
+	font-weight: 400;
+	font-size: 16px !important;
+	line-height: 7px !important;
+	/* or 44% */
+	color: #B0B0B0 !important;
+	border:none !important;
+}
+
+.input-group{
+	border: none;
+
+	@media (min-width: 1500px){
+		width: 90% !important;
+	}
+}
+
+
+.input-group-text{
+	background: white;
+	border:none;
+	border-radius: 90px;
+	width: 50px;
+}
+
+.social-icon{
+	cursor: pointer;
+}
+
+
+.pet-go-logo{
+	width: 40%;
+}

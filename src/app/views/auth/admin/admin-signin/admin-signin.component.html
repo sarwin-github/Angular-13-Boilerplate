@@ -1,0 +1,37 @@
+<div class="container-fluid py-5" 
+[@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6 offset-md-3 bg-light py-5">
+				<!-- Error Message -->
+				<form class="px-3" (submit)="loginAdmin($event)" [formGroup]="adminLoginForm">
+					<div class="alert alert-danger alert-dismissible fade show error-message" [@animate]="{value:'*', params:{ y:'50px', delay:'600ms' }}" *ngIf="error" role="alert">
+					  	<button type="button" class="btn-close hvr-buzz-out" data-bs-dismiss="alert" aria-label="Close" (click)="onAlertClose()"></button>
+					  	<span [innerHtml]="error"></span>
+					</div>  
+
+					<div class="form-group">
+						<h4 class="text-muted m-0">Log in to your Admin Account</h4>
+						<p class="text-justify text-muted mt-2">
+							Lorem ipsum dolor sit amet, veri modus conceptam mel cu, has in dictas discere qualisque, saperet ullamcorper ad eum. 
+						</p>
+
+						<input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter email">
+					</div>
+
+					<div class="form-group mt-3">
+						<input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+					</div>
+
+					<div class="text-center mt-3">
+						<a [routerLink]="'/admin/signup'" class="mat-primary text-center full-width hvr-sink">Are you a new admin? Sign Up Here</a><br>
+					</div>
+
+					<button type="submit" class="btn btn-primary float-end mt-3 hvr-rotate">Submit</button>
+				</form> 
+			</div>
+		</div>
+	</div>
+</div>
+
+

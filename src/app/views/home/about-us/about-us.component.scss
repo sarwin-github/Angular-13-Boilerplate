@@ -1,0 +1,127 @@
+@import "src/assets/styles/colors";
+
+.btn-primary{
+	border: none;
+	padding: 12px 30px !important;
+	background: $color-light-green !important;
+	border-radius: 2px !important;
+}
+
+.bg-dark{
+	background: $color-black-bg !important;
+}
+
+.title-sub{
+	font-family: 'Circular-Regular';
+	font-weight: 100;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 24px;
+	color: #939393;
+}
+
+.title-main{
+	font-family: 'Uni-Sans-Bold';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 45px;
+	line-height: 49px;
+}
+
+.title-about{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 28px;
+	margin-bottom: 7px;
+	cursor: pointer;
+	color: #404040;
+}
+
+.title-description{
+	font-family: 'Circular-Regular';
+	font-style: normal;
+	font-weight: 100;
+	font-size: 16px;
+	line-height: 20px;
+	color: #7E7E7E;
+	margin-bottom: 10px;
+}
+
+.learn-more{
+	font-family: 'Circular-Regular';
+	color: $color-light-green;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.banner-image{
+	width: 150%;
+	margin-left: -70px;
+
+	@media(max-width: 999px){
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+.banner-image-mobile{
+	width: 100%;
+	//margin-left: -70px;
+}
+
+
+.icon-holder-main{
+	border-radius: 50%;
+	max-width: 50px;
+	max-height: 50px;
+	padding: 0px 0px 0px 0px;
+
+	@media(max-width: 889px){
+		max-width: 50px;
+		max-height: 50px;
+		margin-bottom: 15px;
+		margin-top: 15px;
+		padding: 13px 13px 13px 13px;
+	}
+
+	.icon-image{
+		width: 100%;
+		cursor: pointer;
+	}
+}
+
+.icon-holder{
+	@extend .icon-holder-main;
+}
+
+.icon-holder-notification{
+	@extend .icon-holder-main;
+	padding: 17px 20px 20px 20px;
+
+	@media(max-width: 889px){
+		padding: 13px 15px 14px 15px;
+	}
+}
+
+.icon-holder-lifestyle{
+	@extend .icon-holder-main;
+	padding: 20px 20px 20px 20px;
+
+	@media(max-width: 889px){
+		padding: 13px 15px 14px 15px;
+	}
+}
+
+.bg-light-green{
+	background: $color-light-green
+}
+
+.bg-dark-blue{
+	border: solid 2px $color-dark-blue;
+}

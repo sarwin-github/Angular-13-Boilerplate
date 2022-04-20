@@ -1,0 +1,111 @@
+<ng-container *ngIf="!labelTop">
+    <div class="text-input">
+        <div class="d-flex" [ngClass]="labelTop ? 'text-center': ''">
+            <div class="container-label flex-wrap  d-flex align-items-center"
+            [ngClass]="!labelTop ? 'justify-content-end me-3': 'justify-content-end mx-2'"
+            [ngStyle]="{
+                'width': labelTop ? 'auto': ''
+            }">
+                <div class="d-flex">
+                    <p [innerHtml]="label"></p>
+                    <div *ngIf="required" class="asterisk-required">*</div>
+                </div>
+            </div>
+
+            <div class="container-input flex-wrap"
+            [ngStyle]="{
+                'width': labelTop ? '62%': '',
+                'margin-left': labelTop ? '0px': ''
+            }">
+                <div class="d-flex">
+                    <mat-icon matSuffix *ngIf="icon && !img_icon">{{icon}}</mat-icon> 
+
+                    <span class="img-container" *ngIf="img_icon">
+                        <img [src]="img_icon" class="img-fluid">
+                    </span>
+
+                    <mat-datepicker #picker></mat-datepicker>
+                    <input (click)="picker.open()"
+                    [ngClass]="[icon || img_icon ? 'remove-border-left-radius': '', isTouched ? 'error' : '']"
+                    [matDatepicker]="picker" 
+                    type="text" 
+                    [required]="required" 
+                    [readonly]="readonly"  
+                    [placeholder]="placeholder" 
+                    [disabled]="disabled"
+                    [max]="maxDate"
+                    [min]="minDate"
+                    [(ngModel)]="initialVal"
+                    (dateChange)="onValueChanged($event)"
+                    (blur)="onTouch($event)"
+                    >
+                </div>
+                <p *ngIf="isTouched" class="error-msg">*Empty Field</p>
+            </div>
+
+            <div class="container-info">
+                <span class="img-info-container" *ngIf="info">
+                    <img src="/assets/images/icons/info-input-icon.png" 
+                    [matTooltip]="infoTitle"
+                    matTooltipPosition="above"
+                    class="img-fluid">
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="labelTop">
+    <div class="text-input">
+        <div>
+            <p class="label-top text-start text-truncate">
+                <span [innerHtml]="label"></span>
+                <span *ngIf="required" class="asterisk-required">*</span>
+            </p> 
+            <p *ngIf="subLabel" class="label-top sub-label text-start">
+                <span [innerHtml]="subLabel"></span>
+            </p>
+        </div>
+
+        <div class="container-input pt-2"
+        [ngStyle]="{
+            'width': labelTop ? '100%': '',
+            'margin-left': labelTop ? '0px': ''
+        }">
+            <div class="d-flex">
+                <!-- <mat-icon matSuffix *ngIf="icon && !img_icon">{{icon}}</mat-icon> 
+
+                <span class="img-container" *ngIf="img_icon">
+                    <img [src]="img_icon" class="img-fluid">
+                </span> -->
+
+                <mat-datepicker #picker></mat-datepicker>
+                <input (click)="picker.open()"
+                [ngClass]="[icon || img_icon ? 'remove-border-left-radius': '', isTouched ? 'error' : '']"
+                [matDatepicker]="picker" 
+                type="text" 
+                [required]="required" 
+                [readonly]="readonly"  
+                [placeholder]="placeholder" 
+                [disabled]="disabled"
+                [max]="maxDate"
+                [min]="minDate"
+                [(ngModel)]="initialVal"
+                (dateChange)="onValueChanged($event)"
+                (blur)="onTouch($event)"
+                >
+            </div>
+            <p *ngIf="isTouched" class="error-msg">*Empty Field</p>
+        </div>
+
+        <div class="container-info">
+            <span class="img-info-container" *ngIf="info">
+                <img src="/assets/images/icons/info-input-icon.png" 
+                [matTooltip]="infoTitle"
+                matTooltipPosition="above"
+                class="img-fluid">
+            </span>
+        </div>
+    </div> 
+</ng-container>

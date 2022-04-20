@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg navbar-dark text-white py-4 fixed-top">
+  <div class="container d-flex px-0 px-lg-5">
+    <a class="navbar-brand me-3 mx-lg-5" href="#">
+      <img src="/assets/images/placeholder/logo-placeholder.png" class="hvr-grow-rotate" style="width: 150px;">
+    </a>
+
+    <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#togglerButton"
+    aria-controls="togglerButton" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="togglerButton">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item me-4">
+          <a class="nav-link hvr-underline-from-left"
+
+          aria-current="page" href="/">Home</a>
+        </li>
+
+        <ng-container *ngFor="let item of headerItems">
+          <li class="nav-item me-4" *ngIf="item?.route !== '/'">
+            <a class="nav-link" aria-current="page"
+            *ngIf="!item?.sub_routes"
+            [ngClass]="location.match(item?.route) ? 'nav-link-active' : 'hvr-underline-from-left'"
+            style="cursor: pointer;"
+            (click)="navigateToRoute(item?.route)">{{item?.title}} </a>
+
+            <!-- <a class="nav-link" aria-current="page"
+
+            [ngClass]="location.match(item?.route) ? 'nav-link-active' : 'hvr-underline-from-left'"
+            [href]="item?.route">{{item?.title}} </a> -->
+
+            <ng-container *ngIf="item?.sub_routes && loggedInCustomer">
+              <div class="dropdown d-flex">
+                <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile <mat-icon class="mat-icon ms-1">expand_more</mat-icon>
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li style="position: relative;" class="pt-2">
+                    <span class="dropdown-item d-flex">
+                      <img src="/assets/images/face-1.jpg" class="img-avatar me-3">
+                      <div>
+                        <h5 class="title-user">Joe Jhon</h5>
+                        <p class="title-position">User</p>
+                      </div>
+                    </span>
+                  </li>
+
+                  <li *ngFor="let sub_item of item?.sub_routes">
+                    <a class="dropdown-item" [href]="sub_item?.route"
+                    [ngClass]="location.match(sub_item?.route) ? 'nav-drop-link-active' : 'nav-drop-link'">{{sub_item?.title}}</a>
+                  </li>
+
+                  <li class="pb-2">
+                    <span class="dropdown-item nav-drop-link" (click)="customerLogout()">Log out</span>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="item?.sub_routes && !loggedInCustomer">
+              <div class="dropdown d-lg-flex">
+                <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile <mat-icon class="mat-icon ms-1">expand_more</mat-icon>
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="dropdown-item nav-drop-link" [href]="'/#/account/signup'">Sign up</a>
+                  </li>
+
+
+                  <li>
+                    <a class="dropdown-item nav-drop-link" [href]="'/#/account/login'">Join us</a>
+                  </li>
+
+                </ul>
+              </div>
+            </ng-container>
+          </li>
+
+
+        </ng-container>
+        <li class="nav-item ms-3 ms-lg-5 d-none d-lg-flex">
+          <a class="btn-primary ms-0 ms-lg-5 hvr-grow" aria-current="page" 
+           style="width: 138px;"
+          routerLink="/account/signup">
+            Join us
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+<app-footer></app-footer>
