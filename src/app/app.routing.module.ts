@@ -53,15 +53,15 @@ const rootRouterConfig: Routes = [
 ];
 
 const routerOptions: any = {
-  useHash: true,
+  useHash: false,
   //anchorScrolling: 'false',
 };
 
 @NgModule({
   imports: [RouterModule.forRoot(rootRouterConfig, routerOptions)],
   exports: [RouterModule],
-  providers: [
+  /*providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-  ],
+  ],*/
 })
 export class AppRoutingModule { }

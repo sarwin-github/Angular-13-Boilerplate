@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark text-white py-4 fixed-top">
   <div class="container d-flex px-0 px-lg-5">
-    <a class="navbar-brand me-3 mx-lg-5" href="#">
+    <a class="navbar-brand me-3 mx-lg-5" routerLink="/">
       <img src="/assets/images/placeholder/logo-placeholder.png" class="hvr-grow-rotate" style="width: 150px;">
     </a>
 
@@ -18,7 +18,7 @@
         <li class="nav-item me-4">
           <a class="nav-link hvr-underline-from-left"
 
-          aria-current="page" href="/">Home</a>
+          aria-current="page" routerLink="/">Home</a>
         </li>
 
         <ng-container *ngFor="let item of headerItems">
@@ -32,7 +32,7 @@
             <!-- <a class="nav-link" aria-current="page"
 
             [ngClass]="location.match(item?.route) ? 'nav-link-active' : 'hvr-underline-from-left'"
-            [href]="item?.route">{{item?.title}} </a> -->
+            [routerLink]="item?.route">{{item?.title}} </a> -->
 
             <ng-container *ngIf="item?.sub_routes && loggedInCustomer">
               <div class="dropdown d-flex">
@@ -52,7 +52,7 @@
                   </li>
 
                   <li *ngFor="let sub_item of item?.sub_routes">
-                    <a class="dropdown-item" [href]="sub_item?.route"
+                    <a class="dropdown-item" [routerLink]="sub_item?.route"
                     [ngClass]="location.match(sub_item?.route) ? 'nav-drop-link-active' : 'nav-drop-link'">{{sub_item?.title}}</a>
                   </li>
 
@@ -71,12 +71,12 @@
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
-                    <a class="dropdown-item nav-drop-link" [href]="'/#/account/signup'">Sign up</a>
+                    <a class="dropdown-item nav-drop-link" [routerLink]="'/account/signup'">Sign up</a>
                   </li>
 
 
                   <li>
-                    <a class="dropdown-item nav-drop-link" [href]="'/#/account/login'">Join us</a>
+                    <a class="dropdown-item nav-drop-link" [routerLink]="'/account/login'">Join us</a>
                   </li>
 
                 </ul>
