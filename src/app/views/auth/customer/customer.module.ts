@@ -12,6 +12,11 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { SharedModule } from '../../../shared/shared.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { MaterialComponentsModule } from '../../../shared/components/material-components/material-components.module';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { CustomerEffects } from './state/customer.effects';
+import { CustomerReducer } from './state/customer.reducer';
+import { CustomerFacade } from './state/customer.facade';
 
 const components = [
   CustomerSigninComponent,
@@ -27,10 +32,14 @@ const components = [
     ReactiveFormsModule,
     SharedModule,
     MaterialComponentsModule,
+    StoreModule.forFeature('customer', CustomerReducer),
+    EffectsModule.forFeature([CustomerEffects]),
     RouterModule.forChild(CustomersRoutes)
   ],
   declarations: [
     ...components
-  ]
+  ],
+
+  providers: [CustomerFacade]
 })
 export class CustomersModule { }

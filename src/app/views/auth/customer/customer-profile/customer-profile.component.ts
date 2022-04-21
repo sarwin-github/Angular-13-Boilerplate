@@ -4,10 +4,16 @@ import {
   OnDestroy 
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomerService } from '../../../../shared/services/auth/customer/customer.service';
-import { mainAnimations } from '../../../../shared/animations/main-animations';
-import { Subscription } from 'rxjs';
+import { mainAnimations } from '@app-shared/animations/main-animations';
 import { NgxSpinnerService } from "ngx-spinner";
+import { tap } from 'rxjs';
+import { 
+  Observable, 
+  Subscription 
+} from 'rxjs';
+import { CustomerUserService } from '../state/customer.service';
+import { CustomerFacade } from '../state/customer.facade';
+import { Customer } from '../customer.model'
 
 @Component({
   selector: 'customer-profile',
@@ -20,16 +26,23 @@ export class CustomerProfileComponent implements OnInit {
   public loading: boolean = true;
   public customer_data: any = {};
   public tabSelected: string = "details";
+  public customer: any;
+  public customer$: Observable<Customer> = this.customerFacade.customerProfile$;
+
+
 
   constructor(private router:Router, 
     private spinner: NgxSpinnerService,
-    private customerService: CustomerService) { }
+    private customerFacade: CustomerFacade,
+    private customerService: CustomerUserService) { }
 
-
-
-  
   ngOnInit(): void {
-    this.getCustomerProfile();
+    this.customerFacade.getCustomerProfile();
+
+    this.req = this.customer$.subscribe((result: any) => {
+      this.customer = result;
+    });
+    //this.getCustomerProfile();
   }
 
   ngOnDestroy(): void {
@@ -39,6 +52,8 @@ export class CustomerProfileComponent implements OnInit {
   getCustomerProfile(): void {
     this.req = this.customerService.getCustomerProfile()
     .subscribe((result: any) => {
+      //console.log(result)
+
       setTimeout(() =>{ 
         this.loading = false;
         this.customer_data = result;
@@ -50,7 +65,6 @@ export class CustomerProfileComponent implements OnInit {
       //this.spinner.hide();
       localStorage.setItem('sessionError', err);
       localStorage.setItem('sessionUrl', this.router.url);
-      this.customerService.logoutCustomer();
     });   
   }
 }

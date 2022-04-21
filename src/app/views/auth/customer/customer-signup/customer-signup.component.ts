@@ -32,12 +32,12 @@ export class CustomerSignupComponent implements OnInit {
   private customer_email: string = '';
   private customer_password : string = '';
 
-  public customer: Model.User = {
-    fname: '',
-    lname: '',
+  public customer: Model.Customer = {
+    address: '',
     email: '',
-    password: '',
-    phone: 9171234567
+    name: '',
+    phone: null,
+    password: null
   };
   public customerSignupForm: FormGroup;
   public message: any = localStorage.getItem('signupMessage');
@@ -67,11 +67,11 @@ export class CustomerSignupComponent implements OnInit {
         null,
         Validators.compose([Validators.required, Validators.minLength(6)])
       ],*/
-      fname: [
+      name: [
         null,
         Validators.compose([Validators.required])
       ],
-      lname: [
+      address: [
         null,
         Validators.compose([Validators.required])
       ],
@@ -111,17 +111,17 @@ export class CustomerSignupComponent implements OnInit {
     this.customer.email = this.customerSignupForm?.get('email')?.value;
     this.customer.password = this.customerSignupForm?.get('password')?.value;
     //this.customer.confirmPassword = this.customerSignupForm?.get('confirmPassword')?.value;
-    this.customer.fname = this.customerSignupForm?.get('fname')?.value;
-    this.customer.lname = this.customerSignupForm?.get('lname')?.value;
+    this.customer.name = this.customerSignupForm?.get('name')?.value;
+    this.customer.address = this.customerSignupForm?.get('address')?.value;
     this.customer.phone = this.customerSignupForm?.get('phone')?.value;
     //this.customer.address = this.customerSignupForm?.get('address')?.value;
 
     // initialize inputs
-    let body: Model.User  = {
+    let body: Model.Customer  = {
       email: this.customer.email,
       password: this.customer.password,
-      fname: this.customer.fname,
-      lname: this.customer.lname,
+      name: this.customer.name,
+      address: this.customer.address,
       phone: this.customer.phone
       //address: this.customer.address,
       //phone: this.customer.phone,

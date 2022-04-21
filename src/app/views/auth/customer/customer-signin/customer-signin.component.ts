@@ -12,8 +12,8 @@ import {
   FormGroup, 
   Validators 
 } from '@angular/forms';
-import { CustomerService } from '../../../../shared/services/auth/customer/customer.service'
-import { mainAnimations } from '../../../../shared/animations/main-animations';
+import { CustomerService } from '@app-shared/services/auth/customer/customer.service'
+import { mainAnimations } from '@app-shared/animations/main-animations';
 import { Subscription } from 'rxjs';
 import { NgxSpinnerService } from "ngx-spinner";
 

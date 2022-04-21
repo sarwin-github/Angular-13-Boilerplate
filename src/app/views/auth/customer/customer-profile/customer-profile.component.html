@@ -1,1 +1,26 @@
-<h5>Profile Works</h5>
+<div class="container px-5 py-3">
+	<h5 class="ms-5 mt-5">Profile Works</h5>
+
+	<div *ngIf="customer$ | async as customer">
+		<table class="table w-50 ms-5 mt-3">
+			<tbody>
+				<tr>
+					<td>Name:</td> <td> {{customer.name}}</td>
+				</tr>
+
+				<tr>
+					
+					<td>Email:</td> <td> {{customer.email}}</td>
+				</tr>
+
+				<tr>
+					<td>Address:</td> <td> {{customer.address}}</td>
+				</tr>
+
+				<tr>
+					<td>Phone:</td> <td> {{customer.phone}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

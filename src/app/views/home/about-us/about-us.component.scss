@@ -80,17 +80,19 @@
 	border-radius: 50%;
 	max-width: 50px;
 	max-height: 50px;
-	padding: 0px 0px 0px 0px;
+	//padding: 0px 0px 0px 0px;
 
 	@media(max-width: 889px){
 		max-width: 50px;
 		max-height: 50px;
 		margin-bottom: 15px;
-		margin-top: 15px;
+		//margin-top: 15px;
 		padding: 13px 13px 13px 13px;
 	}
 
 	.icon-image{
+		border-radius: 50%;
+		height: 100%;
 		width: 100%;
 		cursor: pointer;
 	}

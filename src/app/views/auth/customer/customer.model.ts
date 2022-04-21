@@ -1,7 +1,8 @@
-export interface User {
-  fname: string;
-  lname: string,
-  email: string,
-  password: string,
+export interface Customer {
+  _id?: string;
+  address: string;
+  email: string;
+  name: string;
+  password?: string;
   phone: number
 };
